@@ -20,7 +20,7 @@ Guia completo (landing + passo a passo): **https://inematds.github.io/claude-esc
 |---|---|---|---|
 | 1 | Contexto | Projetos › Novo projeto › cole as Instruções preenchidas (ou deixe o Claude te entrevistar) | `kit/contexto/instrucoes-do-projeto.md`, `kit/prompts/01-entrevista-contexto.md` |
 | 2 | Marca | Anexe PDF da marca, prints do site ou o logo e peça o design system; confira as cores | `kit/prompts/02-design-system.md`, `kit/design-system-modelo.md` |
-| 3 | Primeiro modelo | Faça a peça que você mais repete (proposta, documento, post, painel, animação) | `kit/prompts/03` a `07` |
+| 3 | Primeiro modelo | Faça a peça que você mais repete (proposta, documento, post, painel, animação) | `kit/prompts/03-slides-proposta.md`, `04-docs-colega.md`, `05-design-peca.md`, `06-dashboard-numeros.md`, `07-motion-explicativo.md` |
 | 4 | Reusar | A peça aprovada vira "Modelo de …" no Projeto; as próximas saem dela | `kit/prompts/08-reusar-modelo.md` |
 | — | Antes de compartilhar | Confira plano, números e com quem compartilha | `kit/checklist-planos.md` |
 

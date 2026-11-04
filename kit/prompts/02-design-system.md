@@ -9,7 +9,7 @@ espaçamento e estilo das imagens. Você monta uma vez; toda peça depois nasce 
 - o logo (de preferência em versão clara e escura) e o nome das fontes, se souber;
 - se a marca está em código (site em React, por exemplo), o repositório.
 
-**Onde:** numa conversa (anexe os arquivos) ou em Configurações › Capabilities › Design systems › Manage.
+**Onde:** numa conversa (anexe os arquivos) ou nas Configurações do Claude, em **Design systems** (no app em inglês: Settings › Capabilities › Design systems › Manage).
 O site separado claude.ai/design fecha em 14/12/2026; quem tem design system lá migra pela página Artifacts.
 
 ```

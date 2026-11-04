@@ -14,13 +14,13 @@ Guía completa (landing + paso a paso): **https://inematds.github.io/claude-escr
 
 ## El proceso, de principio a fin
 
-| # | Paso | Qué hacer | Archivo del kit (en portugués) |
+| # | Paso | Qué hacer | Archivo del kit |
 |---|---|---|---|
-| 1 | Contexto | Proyectos › Nuevo proyecto › pega las Instrucciones completas (o deja que Claude te entreviste) | `kit/contexto/instrucoes-do-projeto.md`, `kit/prompts/01-entrevista-contexto.md` |
-| 2 | Marca | Adjunta el PDF de la marca, capturas del sitio o el logo y pide el design system; revisa los colores | `kit/prompts/02-design-system.md`, `kit/design-system-modelo.md` |
-| 3 | Primera plantilla | Haz la pieza que más repites (propuesta, documento, post, panel, animación) | `kit/prompts/03` a `07` |
-| 4 | Reusar | La pieza aprobada se vuelve "Plantilla de …" en el Proyecto; las siguientes salen de ella | `kit/prompts/08-reusar-modelo.md` |
-| — | Antes de compartir | Revisa tu plan, los números y con quién compartes | `kit/checklist-planos.md` |
+| 1 | Contexto | Proyectos › Nuevo proyecto › pega las Instrucciones completas (o deja que Claude te entreviste) | `kit/es/contexto/instrucoes-do-projeto.md`, `kit/es/prompts/01-entrevista-contexto.md` |
+| 2 | Marca | Adjunta el PDF de la marca, capturas del sitio o el logo y pide el design system; revisa los colores | `kit/es/prompts/02-design-system.md`, `kit/es/design-system-modelo.md` |
+| 3 | Primera plantilla | Haz la pieza que más repites (propuesta, documento, post, panel, animación) | `kit/es/prompts/03-slides-proposta.md`, `04-docs-colega.md`, `05-design-peca.md`, `06-dashboard-numeros.md`, `07-motion-explicativo.md` |
+| 4 | Reusar | La pieza aprobada se vuelve "Plantilla de …" en el Proyecto; las siguientes salen de ella | `kit/es/prompts/08-reusar-modelo.md` |
+| — | Antes de compartir | Revisa tu plan, los números y con quién compartes | `kit/es/checklist-planos.md` |
 
 ## Qué incluye cada plan (04/11/2026)
 
