@@ -7,7 +7,7 @@ espaciado y estilo de las imágenes. Lo configuras una vez; cada pieza posterior
 - un PDF o una presentación de una marca que te guste;
 - capturas de las páginas principales de tu sitio;
 - el logo (de preferencia, en versiones clara y oscura) y los nombres de las fuentes, si los sabes;
-- si la marca está en código (un sitio en React, por ejemplo), el repositorio.
+- (opcional, para quien programa) si la marca está en código, el repositorio del sitio.
 
 **Dónde:** en una conversación (adjunta los archivos) o en la configuración de Claude, en **Design systems** (en la app en inglés: Settings › Capabilities › Design systems › Manage).
 El sitio independiente claude.ai/design dejará de funcionar el 14/12/2026; quienes tengan un design system allí pueden migrarlo desde la página Artifacts.

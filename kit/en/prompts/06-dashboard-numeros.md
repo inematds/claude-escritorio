@@ -1,6 +1,6 @@
 # Prompt 6 — the dashboard that shows what matters (Claude Dashboards)
 
-**Plan:** Dashboards is in **beta** and only available on paid plans (Pro, Max, Ultra, Team, Enterprise).
+**Plan:** Dashboards is in **beta** and only available on paid plans (Pro, Max, Ultra, Team, Enterprise). On the free plan, do only the first part (choosing the numbers) and track them in a spreadsheet.
 On Enterprise, it’s turned off until the account owner enables it.
 **Data:** Connect a data source (BigQuery, Snowflake, Databricks, Redshift, ClickHouse) or an app like
 Salesforce through connectors. Without that, you can start with an attached spreadsheet.

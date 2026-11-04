@@ -1,7 +1,7 @@
 # Prompt 5 — piezas de diseño con tu marca (Claude Design)
 
 **Cuándo usar:** publicación, folleto, invitación, one-pager, página de ventas, prototipo de pantalla.  
-**Dónde:** pestaña Artifacts › Design (elige tu design system) o en la conversación. Desde Claude Code: `/design`.  
+**Dónde:** pestaña Artifacts › Design (elige tu design system) o en la conversación. (o en una conversación dentro de tu Proyecto).  
 **Plan:** Design está disponible en todos los planes, incluido el gratuito.
 
 ```

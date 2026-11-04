@@ -1,6 +1,6 @@
 # Prompt 6 — el panel que muestra lo que importa (Claude Dashboards)
 
-**Plan:** Dashboards está en **beta** y solo está disponible en los planes de pago (Pro, Max, Ultra, Team, Enterprise).
+**Plan:** Dashboards está en **beta** y solo está disponible en los planes de pago (Pro, Max, Ultra, Team, Enterprise). En el plan gratuito, haz solo la primera parte (elegir los números) y llévalos en una hoja de cálculo.
 En Enterprise viene desactivado hasta que el dueño de la cuenta lo habilite.
 **Datos:** conecta una base de datos (BigQuery, Snowflake, Databricks, Redshift, ClickHouse) o una app como
 Salesforce mediante los conectores. Sin eso, puedes empezar con una hoja de cálculo adjunta.

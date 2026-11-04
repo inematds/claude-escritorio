@@ -7,7 +7,7 @@ spacing, and image style. You set it up once; every piece you create afterward w
 - a PDF or presentation for a brand you like;
 - screenshots of the main pages on your site;
 - your logo (preferably in light and dark versions) and the font names, if you know them;
-- if your brand is in code (a site built with React, for example), the repository.
+- (optional, for developers) if your brand lives in code, the website repository.
 
 **Where:** in a conversation (attach the files) or in Claude Settings, under **Design systems** (in the English app: Settings › Capabilities › Design systems › Manage).
 The separate site claude.ai/design will close on Dec 14, 2026; if you have a design system there, migrate it through the Artifacts page.

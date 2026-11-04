@@ -1,7 +1,7 @@
 # Prompt 5 — Branded design pieces (Claude Design)
 
 **When to use:** post, flyer, invitation, one-pager, sales page, screen prototype.  
-**Where:** Artifacts › Design tab (choose your design system) or in the conversation. In Claude Code: `/design`.  
+**Where:** Artifacts › Design tab (choose your design system) or in the conversation. (or in a chat inside your Project).  
 **Plan:** Design is available on all plans, including the free plan.
 
 ```
