@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Escritório — docs, slides e design com a sua marca no Claude</title>
+<meta name="description" content="Kit aberto para usar o Claude como escritório: Docs, Slides, Design, Dashboards e Motion, com um método em 4 passos (contexto, marca, primeiro modelo, reusar), prompts prontos e checklist de planos.">
+<meta property="og:title" content="Claude Escritório — INEMA.CLUB">
+<meta property="og:description" content="Seu escritório inteiro dentro do Claude: docs, slides e design com a sua marca, em 4 passos.">
+<meta property="og:image" content="https://inematds.github.io/claude-escritorio/capa/capa.png">
+<link rel="alter&#110;ate" hreflang="pt-BR" href="https://inematds.github.io/claude-escritorio/guia/">
+<link rel="alter&#110;ate" hreflang="en" href="https://inematds.github.io/claude-escritorio/guia/en/">
+<link rel="alter&#110;ate" hreflang="es" href="https://inematds.github.io/claude-escritorio/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#FACC15; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#a16207; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  body.light pre .k{color:#f0c070}
+  body.light .btn{background:#FACC15}
+  body.light .step .b{background:#FACC15}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  body.light nav{background:rgba(246,247,249,.85)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(250,204,21,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:900px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .card ul{color:var(--mut);font-size:.92rem;margin:.4em 0 0;padding-left:1.1em}
+  .card li{margin:.25em 0}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(250,204,21,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0;white-space:pre-wrap;overflow-wrap:anywhere}
+  pre .c{color:#8a8a98} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .who{display:inline-block;font-size:.78rem;font-family:Sora;font-weight:600;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:.1em .7em;margin-left:.4em;vertical-align:middle}
+  .tbl{width:100%;border-collapse:collapse;font-size:.92rem}
+  .tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl th{font-family:Sora;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+  .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  .note{border-left:3px solid var(--amb);background:var(--bg2);padding:14px 16px;border-radius:0 12px 12px 0;color:var(--txt);font-size:.95rem;margin-top:22px}
+  body.light .note{border-left-color:#EAB308;background:#FEF9C3}
+  .note a,.src a{text-decoration:underline}
+  body.light a{color:#854d0e}
+  body.light .note a, body.light .src a{text-decoration-color:#FACC15;text-decoration-thickness:3px}
+  .src{font-size:.85rem;color:var(--mut);margin-top:14px}
+  .bad{color:#f0918a;font-family:Sora;font-weight:600}
+  body.light .bad{color:#a83426}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px 6px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🗂️</span> Claude Escritório</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#ferramentas">Ferramentas</a>
+    <a class="sec" href="#guia">Os 4 passos</a>
+    <a class="sec" href="#planos">Planos</a>
+    <a class="sec" href="#kit">Kit</a>
+    <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/claude-escritorio" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Kit aberto · Docs, Slides, Design, Dashboards e Motion</span>
+      <h1>Seu escritório inteiro dentro do <span class="amb">Claude</span></h1>
+      <p class="lead">Documento, apresentação e design com a cara da sua empresa, feitos numa conversa — três deles até no plano grátis. Monte uma vez em 4 passos e pare de começar do zero.</p>
+      <div class="cta">
+        <a class="btn" href="#guia">Começar pelos 4 passos</a>
+        <a class="btn ghost" href="https://github.com/inematds/claude-escritorio/tree/main/kit" target="_blank" rel="noopener">Abrir o kit</a>
+      </div>
+    </div>
+    <figure><img src="assets/banner.jpg" alt="Banner: seu escritório no Claude — docs, slides e design com a sua marca"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">Em resumo</span>
+  <p>Este é um kit gratuito para usar o Claude como escritório: escrever documentos, montar apresentações, criar peças de design e, em alguns planos, painéis de dados e animações. Serve para quem trabalha sozinho ou em equipe pequena e cansou de explicar a marca e o negócio toda vez. O kit traz um modelo de "quem eu sou" para colar num Projeto do Claude, prompts prontos para cada ferramenta e um checklist do que tem em cada plano. Para usar, basta uma conta no Claude (a grátis já serve para Docs, Slides e Design) e um navegador.</p>
+</div></section>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">O que é</span>
+  <h2>Cinco ferramentas numa aba só</h2>
+  <p class="sub">Tudo fica na aba <strong>Artifacts</strong> do Claude. Você escolhe um modelo ali, ou só pede na conversa. O que nasce é privado até você compartilhar, e sai em PowerPoint, Google Slides, PDF, MP4 ou HTML.</p>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="assets/banner-grade.jpg" alt="As cinco ferramentas: Docs, Slides, Design, Dashboards, Motion e o kit" loading="lazy" style="width:100%;display:block"></figure>
+  <div class="grid g3">
+    <div class="card"><h3>🧠 Contexto primeiro</h3><p>Ferramenta boa sem contexto entrega coisa genérica. O kit começa por um Projeto que diz ao Claude quem você é, o que vende e como fala.</p></div>
+    <div class="card"><h3>🎨 Sua marca em tudo</h3><p>Um design system feito de um PDF, prints do site ou do logo. Uma fonte só já basta para começar; depois tudo nasce com a sua cara.</p></div>
+    <div class="card"><h3>♻️ Faz uma vez, reusa</h3><p>A primeira proposta ou relatório que ficar bom vira modelo. Os próximos saem dele, com a mesma estrutura e o mesmo visual.</p></div>
+  </div>
+</div></section>
+
+<section id="ferramentas"><div class="wrap">
+  <span class="chip">As 5 ferramentas</span>
+  <h2>O que cada uma faz (e quando usar)</h2>
+  <p class="sub">Nomes oficiais: Claude Docs, Claude Slides, Claude Design, Claude Dashboards e Claude Motion. Conferido nas páginas da Anthropic em 04/11/2026.</p>
+  <div class="grid g3">
+    <div class="card"><span class="num">1</span><h3>Docs</h3><p>O documento que você escreve junto com o Claude e com a equipe, ao mesmo tempo.</p><ul><li>Ele rascunha seções, faz perguntas e comenta suas escolhas.</li><li>Gráficos de ferramentas conectadas, atualizados quando você pede.</li><li>Use para: manual, política, plano da semana, relatório.</li></ul></div>
+    <div class="card"><span class="num">2</span><h3>Slides</h3><p>Apresentações feitas de notas, relatórios ou do que já está na conversa.</p><ul><li>Edita direto no slide; apresenta sem sair do Claude.</li><li>Exporta PowerPoint, Google Slides editável e PDF.</li><li>Use para: proposta depois da reunião, resultado do mês.</li></ul></div>
+    <div class="card"><span class="num">3</span><h3>Design</h3><p>Posts, folhetos, one-pagers, páginas de venda e protótipos com o seu design system.</p><ul><li>Design system de um PDF, prints, logo ou código.</li><li>No Claude Code: comando <code>/design</code>.</li><li>Use para: post semanal, convite, página de oferta.</li></ul></div>
+    <div class="card"><span class="num">4</span><h3>Dashboards <small>(beta)</small></h3><p>Pergunta em português vira painel que se atualiza, ligado à sua base de dados ou CRM.</p><ul><li>Clique no número e veja a consulta por trás.</li><li>Cada gráfico mostra quando foi atualizado.</li><li>Só nos planos pagos.</li></ul></div>
+    <div class="card"><span class="num">5</span><h3>Motion <small>(beta)</small></h3><p>Animação curta feita em código, que toca como vídeo e baixa em MP4.</p><ul><li>Sem gerador de vídeo: nada de filmagem nem pessoas geradas por IA.</li><li>Troca uma palavra ou número e o resto fica.</li><li>Só nos planos Team e Enterprise.</li></ul></div>
+    <div class="card"><span class="num">+</span><h3>O que todas têm</h3><p>Privado por padrão; você convida com "ver" ou "editar". Edita no celular. A Anthropic diz que já foram feitos mais de 45 milhões de docs, decks e designs no Claude.</p></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">Como funciona</span>
+  <h2>O método em 4 passos</h2>
+  <p class="sub">Monta uma vez, usa todo dia. Os passos 1 e 2 levam uma tarde; o 3 e o 4 você repete toda semana.</p>
+  <div class="flow">
+    <span>1 · Contexto (Projeto)</span><span class="arr">→</span>
+    <span>2 · Marca (design system)</span><span class="arr">→</span>
+    <span>3 · Primeiro modelo</span><span class="arr">→</span>
+    <span>4 · Reusar</span>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Antes de começar</span>
+  <h2>O que você precisa</h2>
+  <p class="sub">Nada para instalar. Tudo acontece no navegador ou no app do Claude.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Uma conta no Claude</h3><p>A grátis já tem Docs, Slides e Design. Dashboards pede plano pago; Motion, plano Team ou Enterprise. Veja a <a href="#planos">tabela de planos</a>.</p></div>
+    <div class="card"><h3>Uma fonte da marca</h3><p>Um PDF ou apresentação de que você gosta, prints das páginas do site ou o logo. Uma fonte só basta para começar.</p></div>
+    <div class="card"><h3>Uma peça que se repete</h3><p>A proposta, o relatório ou o post que você faz toda semana. É ela que vira o seu primeiro modelo.</p></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guia de uso · passo a passo</span>
+  <h2>Monte o seu escritório</h2>
+  <p class="sub">Cada passo tem um arquivo pronto no <a href="https://github.com/inematds/claude-escritorio/tree/main/kit">kit</a>. Copie, troque o que está entre [colchetes] e cole no Claude.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Contexto: diga ao Claude quem você é</h3>
+    <p>Crie um <strong>Projeto</strong> no Claude (Projetos › Novo projeto) e cole nas <strong>Instruções</strong> o modelo <code>kit/contexto/instrucoes-do-projeto.md</code> preenchido. Não quer preencher sozinho? Use o prompt que faz o Claude te entrevistar. Suba também 2 ou 3 arquivos de referência (apresentação comercial, uma proposta que deu certo).</p>
+<pre><span class="c"># kit/prompts/01-entrevista-contexto.md (trecho)</span>
+<span class="k">Quero criar as instruções de um Projeto no Claude para você trabalhar como
+meu assistente de escritório. Me entreviste.</span>
+- Uma pergunta por vez, curta, e espere a minha resposta.
+- Cubra: quem eu sou; minha oferta; meus clientes e objeções; provas reais;
+  meu jeito de falar; minha marca.
+- Não invente nada. O que eu não souber fica de fora.</pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Marca: monte o seu design system</h3>
+    <p>Anexe o PDF da marca, prints do site ou o logo e peça o design system. Ele extrai cores, fontes, uso do logo e estilo. Sai aproximado: confira as cores uma vez com a folha <code>kit/design-system-modelo.md</code>. Para gerenciar: Configurações › Capabilities › Design systems.</p>
+<pre><span class="c"># kit/prompts/02-design-system.md (trecho)</span>
+<span class="k">Anexei o PDF da marca. Crie um design system da minha marca.</span>
+1. Extraia: paleta (código e uso de cada cor), fontes, logo em fundo claro e escuro,
+   espaçamentos, cantos, estilo de ícone e de foto.
+2. Me mostre uma amostra: capa de apresentação, slide, post quadrado, botão.
+3. Liste o que você NÃO achou nos arquivos e me pergunte antes de inventar.</pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Primeiro modelo: a peça que você mais repete</h3>
+    <p>Escolha a ferramenta pela peça. O caso que mais economiza tempo: <strong>da reunião à proposta</strong>. Cole as anotações da reunião, peça pesquisa do site do cliente e uma proposta com o <strong>logo do cliente</strong> na capa — não o seu.</p>
+<pre><span class="c"># kit/prompts/03-slides-proposta.md (trecho)</span>
+<span class="k">Faça uma proposta em slides para [CLIENTE], com o meu design system.</span>
+1. Antes, me mostre o esqueleto e espere o meu OK.
+2. Pesquise o site público de [cliente.com.br] e liste 3 perguntas que faltam.
+3. Capa com o nome e o logo DO CLIENTE.
+4. Problema → o que muda → como fazemos → prazo → investimento → próximo passo.
+5. No máximo 10 slides, com notas do apresentador. Não invente número.</pre>
+    <p>Outras peças: documento com o Claude de colega (<code>04-docs-colega.md</code>), post ou página de venda (<code>05-design-peca.md</code>), painel de números (<code>06-dashboard-numeros.md</code>) e animação (<code>07-motion-explicativo.md</code>).</p>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Reusar: o que ficou bom vira modelo</h3>
+    <p>Quando uma peça for aprovada, peça ao Claude para descrever a estrutura dela e salve no Projeto como "Modelo de …". Daí em diante é só pedir "igual ao modelo" e mudar o que é novo. Compartilhe com a equipe com "ver" ou "editar".</p>
+<pre><span class="c"># kit/prompts/08-reusar-modelo.md (trecho)</span>
+<span class="k">Nova proposta para [cliente], igual ao "Modelo de proposta".</span>
+O que muda: [anotações da reunião nova].
+Mostre só o que mudou em relação ao modelo antes de montar tudo.</pre>
+  </div></div>
+</div></section>
+
+<section id="numeros"><div class="wrap">
+  <span class="chip">Painel de números</span>
+  <h2>Antes do Dashboards: escolha 1 número de resultado</h2>
+  <p class="sub">Um painel bom responde a uma pergunta só: "estou chegando lá?". Separe o número que você quer no fim dos números que você consegue mexer hoje.</p>
+  <div class="tblwrap"><table class="tbl">
+    <tr><th>Negócio</th><th>Número de resultado (o fim)</th><th>Números que empurram (o que você mexe)</th></tr>
+    <tr><td>Clínica</td><td>Consultas feitas no mês</td><td>Primeiras consultas agendadas · faltas confirmadas na véspera · retornos marcados</td></tr>
+    <tr><td>Consultoria</td><td>Faturamento do mês</td><td>Reuniões feitas · propostas enviadas · propostas respondidas</td></tr>
+    <tr><td>Loja online</td><td>Pedidos pagos</td><td>Visitas · carrinhos abertos · carrinhos recuperados</td></tr>
+    <tr><td>Canal de vídeos</td><td>Inscritos</td><td>Vídeos publicados por semana · visualizações por vídeo</td></tr>
+  </table></div>
+  <p class="sub" style="margin-top:14px">Exemplos ilustrativos. Antes de compartilhar o painel, clique em cada número e confira a consulta e a data da última atualização: a Anthropic não publicou taxa de acerto das consultas.</p>
+</div></section>
+
+<section id="planos"><div class="wrap">
+  <span class="chip">Planos</span>
+  <h2>O que tem no seu plano</h2>
+  <p class="sub">Conferido em 04/11/2026 em claude.com/features/artifacts e na central de ajuda do Claude. Planos mudam: confira em <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>.</p>
+  <div class="tblwrap"><table class="tbl">
+    <tr><th>Ferramenta</th><th>Grátis</th><th>Pro / Max / Ultra</th><th>Team</th><th>Enterprise</th></tr>
+    <tr><td>Docs</td><td>✅ sim</td><td>✅ sim</td><td>✅ sim</td><td>✅ sim</td></tr>
+    <tr><td>Slides</td><td>✅ sim</td><td>✅ sim</td><td>✅ sim</td><td>✅ sim</td></tr>
+    <tr><td>Design + design system</td><td>✅ sim</td><td>✅ sim</td><td>✅ sim</td><td>✅ sim</td></tr>
+    <tr><td>Dashboards</td><td>❌ não</td><td>🧪 beta</td><td>🧪 beta</td><td>🧪 beta (o dono liga)</td></tr>
+    <tr><td>Motion</td><td>❌ não</td><td>❌ não</td><td>🧪 beta</td><td>🧪 beta (o dono liga)</td></tr>
+  </table></div>
+  <p class="sub" style="margin-top:14px">O site separado claude.ai/design fecha em 14/12/2026. Quem tem design system lá migra pela página Artifacts ("Migrate team design systems").</p>
+</div></section>
+
+<section id="erros"><div class="wrap">
+  <span class="chip">Erros comuns</span>
+  <h2>O que faz sair genérico (e como evitar)</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Pedir sem contexto</h3><p>"Faz um slide sobre o meu serviço" sem Projeto = slide de qualquer empresa. Faça o passo 1 antes de tudo.</p></div>
+    <div class="card"><h3>Deixar o Claude inventar</h3><p>Número, depoimento ou cliente que não existe destrói a confiança. A regra "não invente, pergunte" já está no modelo de instruções.</p></div>
+    <div class="card"><h3>Seu logo na proposta do cliente</h3><p>Em material para cliente, a capa é dele: nome e logo do cliente. O seu vai no fim.</p></div>
+    <div class="card"><h3>Painel sem conferir</h3><p>Dashboards mostra a consulta de cada número. Clique e confira antes de mandar para alguém.</p></div>
+    <div class="card"><h3>Começar do zero toda vez</h3><p>A peça aprovada vira modelo (passo 4). É daí que vem o tempo economizado.</p></div>
+    <div class="card"><h3>Compartilhar demais</h3><p>Tudo nasce privado. Convide só quem precisa, com "ver" ou "editar".</p></div>
+  </div>
+</div></section>
+
+<section id="kit"><div class="wrap">
+  <span class="chip">O kit</span>
+  <h2>Arquivos prontos para copiar</h2>
+  <p class="sub">Tudo em texto simples (Markdown), no repositório. Abra, copie e cole no Claude.</p>
+  <div class="tblwrap"><table class="tbl">
+    <tr><th>Arquivo</th><th>Para quê</th></tr>
+    <tr><td><code>kit/contexto/instrucoes-do-projeto.md</code></td><td>Modelo de "quem eu sou" para as Instruções do Projeto (passo 1)</td></tr>
+    <tr><td><code>kit/contexto/exemplo/instrucoes-clinica.md</code></td><td>O mesmo modelo preenchido com um exemplo fictício</td></tr>
+    <tr><td><code>kit/prompts/01-entrevista-contexto.md</code></td><td>O Claude te entrevista e escreve o contexto</td></tr>
+    <tr><td><code>kit/prompts/02-design-system.md</code></td><td>Sua marca vira design system (passo 2)</td></tr>
+    <tr><td><code>kit/design-system-modelo.md</code></td><td>Folha para conferir cores, fontes e logo</td></tr>
+    <tr><td><code>kit/prompts/03-slides-proposta.md</code></td><td>Da reunião à proposta em slides</td></tr>
+    <tr><td><code>kit/prompts/04-docs-colega.md</code></td><td>Documento com o Claude de colega + rotina da semana</td></tr>
+    <tr><td><code>kit/prompts/05-design-peca.md</code></td><td>Post, folheto ou página de venda com a sua marca</td></tr>
+    <tr><td><code>kit/prompts/06-dashboard-numeros.md</code></td><td>Escolher os números e montar o painel</td></tr>
+    <tr><td><code>kit/prompts/07-motion-explicativo.md</code></td><td>Relatório vira animação de 30 segundos</td></tr>
+    <tr><td><code>kit/prompts/08-reusar-modelo.md</code></td><td>A peça aprovada vira modelo (passo 4)</td></tr>
+    <tr><td><code>kit/checklist-planos.md</code></td><td>O que tem no seu plano + checklist antes de compartilhar</td></tr>
+  </table></div>
+  <div class="cta" style="margin-top:22px"><a class="btn" href="https://github.com/inematds/claude-escritorio/tree/main/kit" target="_blank" rel="noopener">Abrir o kit no GitHub</a></div>
+</div></section>
+
+<section id="videos" hidden><div class="wrap">
+  <span class="chip">Vídeos</span>
+  <h2>Veja explicado</h2>
+  <!-- VIDEOS -->
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Claude</div><div class="pill">Artifacts</div><div class="pill">Design system</div><div class="pill">Prompts</div>
+    <p style="margin-top:18px">Claude Escritório · kit aberto e gratuito ·
+      <a href="https://github.com/inematds/claude-escritorio">inematds/claude-escritorio</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='claude-escritorio-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; }
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      localStorage.setItem(KEY, light?'light':'dark');
+    });
+  })();
+</script>
+</body>
+</html>
